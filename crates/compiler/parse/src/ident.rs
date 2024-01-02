@@ -470,7 +470,7 @@ fn chomp_identifier_chain<'a>(
     }
 
     while let Ok((ch, width)) = char::from_utf8_slice_start(&buffer[chomped..]) {
-        if ch.is_alphabetic() || ch.is_ascii_digit() {
+        if ch.is_alphabetic() || ch.is_ascii_digit() || ch == '_' {
             chomped += width;
         } else {
             // we're done
